@@ -40,6 +40,7 @@ One_credit/
   - `POST /todos` – create a new todo.
   - `DELETE /todos/{id}` – delete a todo.
 - **Streamlit** uses `requests` to call those endpoints, displaying the list and offering a form to add new items.
+- **AI‑enhanced suggestion**: the UI imports `generate_suggestion` from `app.ai`. Users can type a todo title and click **Suggest** to receive a concise AI‑generated suggestion (via OpenAI’s GPT‑3.5‑turbo if `OPENAI_API_KEY` is set, otherwise a deterministic fallback).
 
 ## Extending the Project
 - Replace the in‑memory store with a real database (SQLite, Postgres, etc.).
