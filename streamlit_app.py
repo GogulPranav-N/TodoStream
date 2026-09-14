@@ -2,6 +2,7 @@ import streamlit as st
 import requests
 import os
 from typing import List, Dict
+from app.ai import generate_suggestion
 
 API_URL = os.getenv("API_URL", "http://api:8000")
 
@@ -58,7 +59,12 @@ else:
 # Form to add a new todo
 with st.form("add_todo"):
     new_title = st.text_input("Todo title")
-    submitted = st.form_submit_button("Add")
-    if submitted and new_title:
+    # Two buttons: one to get an AI suggestion, another to add the todo
+    suggest_clicked = st.form_submit_button("Suggest")
+    add_clicked = st.form_submit_button("Add")
+    if suggest_clicked and new_title:
+        suggestion = generate_suggestion(new_title)
+        st.info(f"AI suggestion: {suggestion}")
+    if add_clicked and new_title:
         add_todo(new_title)
         st.experimental_rerun()

@@ -1,4 +1,4 @@
-# TodoStream – FastAPI + Streamlit Todo App
+# AI‑TodoStream – FastAPI + Streamlit Todo App
 
 ## Overview
 A simple **intermediate‑level** demonstration of a full‑stack web app built with:
